@@ -1,0 +1,128 @@
+VaultSpend - App Structure
+==========================
+
+Main Navigation Tabs:
+├─ 💰 Finance (Primary Tab) ──────────────────────┐
+│  └─ Sub-Navigation:                             │
+│     ├─ 📊 Dashboard (default)                   │
+│     │  ├─ Total Expenses Card                   │
+│     │  ├─ Transactions Card                     │
+│     │  ├─ Categories Card                       │
+│     │  ├─ Alerts Section                        │
+│     │  ├─ Top Categories (with bars)            │
+│     │  └─ Recent Transactions                   │
+│     │                                            │
+│     ├─ ➕ Add                                    │
+│     │  └─ Manual Expense Form:                  │
+│     │     ├─ Amount Input                       │
+│     │     ├─ Currency Selector                  │
+│     │     ├─ Category Dropdown                  │
+│     │     ├─ Description Input                  │
+│     │     └─ Payment Method                     │
+│     │                                            │
+│     ├─ 🎙️ Voice ⭐ UNIQUE FEATURE              │
+│     │  └─ Voice Input Interface:                │
+│     │     ├─ "Start Voice Input" Button         │
+│     │     ├─ Status Display                     │
+│     │     └─ Auto-fills Add form                │
+│     │                                            │
+│     ├─ 📷 Receipt ⭐ UNIQUE FEATURE             │
+│     │  └─ Receipt Upload:                       │
+│     │     ├─ "Upload Receipt" Button            │
+│     │     ├─ Receipt Preview Image              │
+│     │     └─ Tip: Use Voice for entry           │
+│     │                                            │
+│     ├─ 🔮 Insights ⭐ UNIQUE FEATURE            │
+│     │  └─ Predictive Analysis:                  │
+│     │     ├─ "Generate Insights" Button         │
+│     │     └─ Insights List:                     │
+│     │        ├─ Spending Forecasts              │
+│     │        ├─ Anomaly Alerts                  │
+│     │        └─ AI Recommendations              │
+│     │                                            │
+│     └─ 📥 Export ⭐ UNIQUE FEATURE              │
+│        └─ Export Options:                       │
+│           ├─ "Export CSV" Button                │
+│           ├─ "Export JSON" Button               │
+│           └─ "Print Report (PDF)" Button        │
+│                                                  │
+├─ 💬 Chat                                         │
+│  └─ LLM chat interface                          │
+│                                                  │
+├─ 📷 Vision                                       │
+│  └─ Camera + VLM                                │
+│                                                  │
+├─ 🎙️ Voice                                       │
+│  └─ Full voice pipeline                         │
+│                                                  │
+└─ 🔧 Tools                                        │
+   └─ Function calling demo                       │
+
+Key Features Workflow:
+=====================
+
+1. Voice-to-Category Flow:
+   User speaks → Web Speech API → LLM categorizes → Form auto-filled
+
+2. Receipt + Voice Flow:
+   Upload receipt → View reference → Speak details → AI categorizes
+
+3. Predictive Alerts Flow:
+   Add expenses → Click Insights → ML analyzes → Shows forecasts
+
+4. Multi-Currency Flow:
+   Type description → AI detects currency → Auto-selects
+
+5. Export Flow:
+   Click Export → Choose format → Download/Print
+
+Data Storage:
+============
+Browser localStorage:
+├─ vaultspend_expenses (Expense[])
+├─ vaultspend_categories (Category[])
+├─ vaultspend_budgets (Budget[])
+├─ vaultspend_alerts (PredictiveAlert[])
+└─ vaultspend_settings (AppSettings)
+
+OPFS (Origin Private File System):
+├─ LFM2-350M model (~250MB)
+└─ Other cached models
+
+Tech Stack:
+==========
+Frontend: React 19 + TypeScript + Vite
+AI SDK: RunAnywhere Web SDK
+Models:
+  - LFM2 350M Q4_K_M (Language)
+  - Web Speech API (Voice input)
+Storage: localStorage + OPFS
+Deployment: Vercel (with COOP/COEP headers)
+
+File Organization:
+=================
+src/
+├── types/
+│   └── finance.ts (250 lines)
+├── utils/
+│   └── storage.ts (220 lines)
+├── services/
+│   ├── voiceCategory.ts (280 lines)
+│   ├── receiptOCR.ts (simplified, 100 lines)
+│   ├── predictiveAlerts.ts (290 lines)
+│   ├── export.ts (360 lines)
+│   └── currencyDetection.ts (240 lines)
+├── components/
+│   ├── FinanceTab.tsx (550 lines) ⭐ MAIN
+│   ├── ChatTab.tsx
+│   ├── VisionTab.tsx
+│   ├── VoiceTab.tsx
+│   ├── ToolsTab.tsx
+│   └── ModelBanner.tsx
+├── hooks/
+│   └── useModelLoader.ts
+└── styles/
+    └── index.css (1000+ lines with finance styles)
+
+Total Lines of Code (Finance Feature): ~2,290 lines
+Total Project Size: ~4,000 lines
