@@ -22,15 +22,19 @@
 }
 
 [data-theme="light"] {
-  --bg: #F5F7FA;
+  --bg: #F0F4F8;
   --bg-card: #FFFFFF;
-  --bg-input: #E8ECF0;
-  --text: #1A2332;
-  --text-muted: #6B7A8F;
+  --bg-input: #E2E8F0;
+  --text: #1E293B;
+  --text-muted: #64748B;
   --primary: #059669;
   --primary-hover: #047857;
   --primary-gold: #D97706;
-  --border: #D1D9E6;
+  --green: #059669;
+  --red: #DC2626;
+  --blue: #2563EB;
+  --purple: #7C3AED;
+  --border: #CBD5E1;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -62,13 +66,13 @@ body {
   gap: 10px;
   padding: 18px 20px;
   border-bottom: 1px solid var(--border);
-  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg) 100%);
+  background: linear-gradient(135deg, var(--bg-card) 0%, #E8EEF4 100%);
 }
 
 .app-title {
   font-size: 20px;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-gold) 100%);
+  background: linear-gradient(135deg, #059669 0%, #D97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -84,11 +88,11 @@ body {
   font-weight: 700;
   padding: 4px 10px;
   border-radius: 20px;
-  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
   color: white;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25);
 }
 
 /* ---------------------------------------------------------------------------
@@ -168,11 +172,11 @@ body {
   height: 100dvh;
   gap: 20px;
   text-align: center;
-  background: linear-gradient(135deg, #0D1B2A 0%, #1B263B 100%);
+  background: linear-gradient(135deg, #F0F4F8 0%, #FFFFFF 100%);
 }
 
 .app-loading h2 {
-  background: linear-gradient(135deg, #10B981 0%, #F59E0B 100%);
+  background: linear-gradient(135deg, #059669 0%, #D97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -252,15 +256,15 @@ body {
 .btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
 .btn-primary {
-  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
   color: white;
   border: none;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.25);
 }
 
 .btn-primary:hover:not(:disabled) { 
-  background: linear-gradient(135deg, #059669 0%, #047857 100%);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, #047857 0%, #065F46 100%);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.35);
   transform: translateY(-2px);
 }
 
@@ -343,17 +347,17 @@ body {
 }
 
 .message-user .message-bubble {
-  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
   color: white;
   border-bottom-right-radius: 4px;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.25);
 }
 
 .message-assistant .message-bubble {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-bottom-left-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 .message-stats {
@@ -821,13 +825,13 @@ body {
   padding: 20px;
   text-align: center;
   border-bottom: 1px solid var(--border);
-  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg) 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F0F4F8 100%);
 }
 
 .finance-header h2 {
   font-size: 22px;
   margin-bottom: 6px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-gold) 100%);
+  background: linear-gradient(135deg, #059669 0%, #D97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -891,17 +895,17 @@ body {
 }
 
 .finance-card {
-  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-input) 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 100%);
   padding: 18px;
   border-radius: var(--radius);
   border: 1px solid var(--border);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .finance-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 .finance-card h3 {
@@ -940,7 +944,7 @@ body {
 
 /* Alerts */
 .finance-alerts {
-  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-input) 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 100%);
   padding: 18px;
   border-radius: var(--radius);
   border: 1px solid var(--border);
@@ -987,8 +991,8 @@ body {
 
 /* Categories */
 .finance-categories {
-  background: linear-gradient(135deg, #1B263B 0%, #243447 100%);
-  padding: 16px;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 100%);
+  padding: 18px;
   border-radius: var(--radius);
   border: 1px solid var(--border);
 }
@@ -1036,8 +1040,8 @@ body {
 
 /* Transactions */
 .finance-recent {
-  background: linear-gradient(135deg, #1B263B 0%, #243447 100%);
-  padding: 16px;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 100%);
+  padding: 18px;
   border-radius: var(--radius);
   border: 1px solid var(--border);
 }
@@ -1187,19 +1191,19 @@ body {
 
 /* Form */
 .finance-form {
-  background: linear-gradient(135deg, #1B263B 0%, #243447 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 100%);
   padding: 24px;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   max-width: 400px;
   margin: 0 auto;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .finance-form h3 {
   font-size: 18px;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #10B981 0%, #F59E0B 100%);
+  background: linear-gradient(135deg, #059669 0%, #D97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1414,14 +1418,14 @@ body {
 }
 
 .overview-period-card {
-  background: linear-gradient(135deg, #1B263B 0%, #243447 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 100%);
   padding: 16px;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
   gap: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .overview-period-icon {
