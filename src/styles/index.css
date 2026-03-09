@@ -916,15 +916,6 @@ body {
   letter-spacing: 0.5px;
 }
 
-.finance-value {
-  font-size: 22px;
-  font-weight: 700;
-  background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 .finance-card .finance-subtitle {
   font-size: 10px;
   color: var(--text-muted);
@@ -967,16 +958,6 @@ body {
 .finance-alert-low {
   background: rgba(16, 185, 129, 0.1);
   border-color: #10B981;
-}
-
-.finance-alert-medium {
-  background: rgba(245, 158, 11, 0.1);
-  border-color: #F59E0B;
-}
-
-.finance-alert-high {
-  background: rgba(239, 68, 68, 0.1);
-  border-color: #EF4444;
 }
 
 .finance-alert-medium {
@@ -1558,7 +1539,7 @@ body {
 .overview-stat-value {
   font-size: 18px;
   font-weight: 700;
-  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+  background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1628,7 +1609,7 @@ body {
 }
 
 .comparison-bar.current {
-  background: linear-gradient(90deg, #F59E0B 0%, #FBBF24 100%);
+  background: linear-gradient(90deg, #10B981 0%, #34D399 100%);
 }
 
 .comparison-bar-amount {
@@ -1916,4 +1897,98 @@ body {
 
 [data-theme="light"] .toggle-slider::before {
   background: white;
+}
+
+/* ---------------------------------------------------------------------------
+ * Theme-specific color grading
+ * --------------------------------------------------------------------------- */
+
+[data-theme="dark"] .app-header {
+  background: linear-gradient(135deg, #1B263B 0%, #0F1C2E 100%);
+}
+
+[data-theme="light"] .app-header {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E8EEF4 100%);
+}
+
+[data-theme="dark"] .app-loading {
+  background: linear-gradient(135deg, #0D1B2A 0%, #1B263B 100%);
+}
+
+[data-theme="light"] .app-loading {
+  background: linear-gradient(135deg, #F0F4F8 0%, #FFFFFF 100%);
+}
+
+[data-theme="dark"] .finance-header {
+  background: linear-gradient(135deg, #1B263B 0%, #0F1C2E 100%);
+}
+
+[data-theme="light"] .finance-header {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F0F4F8 100%);
+}
+
+[data-theme="dark"] .finance-card,
+[data-theme="dark"] .finance-alerts,
+[data-theme="dark"] .finance-categories,
+[data-theme="dark"] .finance-recent,
+[data-theme="dark"] .finance-form,
+[data-theme="dark"] .finance-feature,
+[data-theme="dark"] .overview-period-card,
+[data-theme="dark"] .overview-categories,
+[data-theme="dark"] .overview-stat-card,
+[data-theme="dark"] .overview-comparison,
+[data-theme="dark"] .budget-summary-card,
+[data-theme="dark"] .budget-progress,
+[data-theme="dark"] .budget-categories {
+  background: linear-gradient(135deg, #1B263B 0%, #243447 100%);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.24);
+}
+
+[data-theme="light"] .finance-card,
+[data-theme="light"] .finance-alerts,
+[data-theme="light"] .finance-categories,
+[data-theme="light"] .finance-recent,
+[data-theme="light"] .finance-form,
+[data-theme="light"] .finance-feature,
+[data-theme="light"] .overview-period-card,
+[data-theme="light"] .overview-categories,
+[data-theme="light"] .overview-stat-card,
+[data-theme="light"] .overview-comparison,
+[data-theme="light"] .budget-summary-card,
+[data-theme="light"] .budget-progress,
+[data-theme="light"] .budget-categories {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 100%);
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="dark"] .app-title,
+[data-theme="dark"] .finance-header h2,
+[data-theme="dark"] .finance-form h3,
+[data-theme="dark"] .finance-feature h3,
+[data-theme="dark"] .app-loading h2 {
+  background: linear-gradient(135deg, #10B981 0%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="light"] .app-title,
+[data-theme="light"] .finance-header h2,
+[data-theme="light"] .finance-form h3,
+[data-theme="light"] .finance-feature h3,
+[data-theme="light"] .app-loading h2 {
+  background: linear-gradient(135deg, #059669 0%, #D97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="dark"] .overview-stat-value,
+[data-theme="dark"] .comparison-bar.current {
+  background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+}
+
+[data-theme="light"] .overview-stat-value,
+[data-theme="light"] .comparison-bar.current {
+  background: linear-gradient(135deg, #059669 0%, #10B981 100%);
 }
