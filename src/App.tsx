@@ -12,6 +12,15 @@ export function App() {
   const [sdkReady, setSdkReady] = useState(false);
   const [sdkError, setSdkError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<Tab>('finance');
+  const [darkMode, setDarkMode] = useState(() => {
+    const saved = localStorage.getItem('theme');
+    return saved ? saved === 'dark' : true;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+  }, [darkMode]);
 
   useEffect(() => {
     initSDK()
@@ -72,6 +81,20 @@ export function App() {
         {activeTab === 'voice' && <VoiceTab />}
         {activeTab === 'tools' && <ToolsTab />}
       </main>
+
+      <footer className="app-footer">
+        <div className="theme-toggle">
+          <span className="theme-label">{darkMode ? '🌙' : '☀️'}</span>
+          <label className="toggle-switch">
+            <input 
+              type="checkbox" 
+              checked={darkMode} 
+              onChange={(e) => setDarkMode(e.target.checked)}
+            />
+            <span className="toggle-slider"></span>
+          </label>
+        </div>
+      </footer>
     </div>
   );
 }
