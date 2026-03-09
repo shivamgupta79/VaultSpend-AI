@@ -4,13 +4,14 @@ import { ChatTab } from './components/ChatTab';
 import { VisionTab } from './components/VisionTab';
 import { VoiceTab } from './components/VoiceTab';
 import { ToolsTab } from './components/ToolsTab';
+import { FinanceTab } from './components/FinanceTab';
 
-type Tab = 'chat' | 'vision' | 'voice' | 'tools';
+type Tab = 'finance' | 'chat' | 'vision' | 'voice' | 'tools';
 
 export function App() {
   const [sdkReady, setSdkReady] = useState(false);
   const [sdkError, setSdkError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<Tab>('chat');
+  const [activeTab, setActiveTab] = useState<Tab>('finance');
 
   useEffect(() => {
     initSDK()
@@ -42,11 +43,14 @@ export function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>RunAnywhere AI</h1>
+        <span className="app-title">VaultSpend AI</span>
         {accel && <span className="badge">{accel === 'webgpu' ? 'WebGPU' : 'CPU'}</span>}
       </header>
 
       <nav className="tab-bar">
+        <button className={activeTab === 'finance' ? 'active' : ''} onClick={() => setActiveTab('finance')}>
+          💰 Finance
+        </button>
         <button className={activeTab === 'chat' ? 'active' : ''} onClick={() => setActiveTab('chat')}>
           💬 Chat
         </button>
@@ -62,6 +66,7 @@ export function App() {
       </nav>
 
       <main className="tab-content">
+        {activeTab === 'finance' && <FinanceTab />}
         {activeTab === 'chat' && <ChatTab />}
         {activeTab === 'vision' && <VisionTab />}
         {activeTab === 'voice' && <VoiceTab />}
